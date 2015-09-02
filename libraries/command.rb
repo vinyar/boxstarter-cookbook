@@ -46,7 +46,7 @@ module BoxstarterLibrary
         $host.SetShouldExit($result.errors.count)
       }
       EOS
-      Chef::Log.debug "wrapping boxstarter invocation script: #{command}"
+      boxlog "wrapping boxstarter invocation script: #{command}"
       command = command.chars.to_a.join("\x00").chomp
       command << "\x00" unless command[-1].eql? "\x00"
       if(defined?(command.encode))
